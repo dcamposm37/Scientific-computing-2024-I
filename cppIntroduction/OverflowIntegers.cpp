@@ -1,5 +1,5 @@
 #include <cstdio>
-
+// Imprime potencias de 2
 int main(void)
 {
   int a = 1;
