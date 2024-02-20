@@ -34,7 +34,7 @@ int main(){
         float S1 = S1results[ii-1];
         float S2 = SumDown(ii);
         float DS = 1.0 - S1/S2;
-        std::cout << ii << " | " << S1 << " | " << S2 << " | " << std::abs(DS) << std::endl;
+        std::cout << ii << " " << S1 << " " << S2 << " " << std::abs(DS) << std::endl;
     }
 
 }
