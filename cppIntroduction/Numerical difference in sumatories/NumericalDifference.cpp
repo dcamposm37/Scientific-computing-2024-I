@@ -9,7 +9,7 @@ const int N = 1e6;
 vector<float> SumUp(int limit){
     vector<float> sum(limit); 
     float term = 0;
-    for (int ii = 1; ii<limit; ii++){        
+    for (int ii = 1; ii<=limit; ii++){        
         term += 1.0/ii;
 
         sum[ii-1] = term;
@@ -34,7 +34,7 @@ int main(){
         float S1 = S1results[ii-1];
         float S2 = SumDown(ii);
         float DS = 1.0 - S1/S2;
-        std::cout << ii << " " << S1 << " " << S2 << " " << std::abs(DS) << std::endl;
+        std::cout << ii << " | " << S1 << " | " << S2 << " | " << std::abs(DS) << std::endl;
     }
 
 }
