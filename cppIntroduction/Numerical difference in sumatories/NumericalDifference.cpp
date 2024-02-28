@@ -27,14 +27,13 @@ float SumDown(int limit){
 }
 
 int main(){
-    #pragma omp parallel num_threads(total_threads)
-
     vector<float>S1results = SumUp(N);
-    for(int ii=1; ii<=N; ii++){
+    for(int ii=1; ii<=N; ii++
+    ){
         float S1 = S1results[ii-1];
         float S2 = SumDown(ii);
         float DS = 1.0 - S1/S2;
-        std::cout << ii << " | " << S1 << " | " << S2 << " | " << std::abs(DS) << std::endl;
+        std::cout << ii << "\t " << S1 << "\t" << S2 << "\t" << std::abs(DS) << std::endl;
     }
 
 }
