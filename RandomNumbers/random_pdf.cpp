@@ -41,19 +41,19 @@ void compute_pdf(int seed, int nsamples, double mu, double sigma, double xmin, d
           break;
         }
         x0 = x0 + width;
-        x1 = x1 + width;
+        x1 = x1 + width; // Pasa al siguiente intervalo
       }
   }
 
-  string dataFile = "data" + to_string(seed) + ".txt";
+  string dataFile = "data" + to_string(seed) + ".txt"; //Nombra el archivo txt por la semilla
   ofstream fout;
   fout.open(dataFile);
 
   double BinCenter = (2*xmin + width)/2; // Calcula el centro de los bins
-  for(int ii = 0; ii < nbins; ii++){
-    double f = hist[ii]/(nsamples*width);
-    fout << BinCenter << '\t' << f << '\n';
-    BinCenter = BinCenter + width;
+  for(int ii = 0; ii < nbins; ii++){ // itera los intervalos
+    double f = hist[ii]/(nsamples*width); // probability density functino
+    fout << BinCenter << '\t' << f << '\n'; // Imprime los datos en el archivo
+    BinCenter = BinCenter + width; // Pasa al siguiente intervalo
   }
   fout.close();
 } 
