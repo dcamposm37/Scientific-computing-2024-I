@@ -3,8 +3,6 @@ fig.pdf: plot.gp data.txt
 
 sumupdown.x: sumupdown.cpp
 	g++ sumupdown.cpp -o sumupdown.x
-#%.x: %.cpp
-#	g++ $^ -o $@
 
 data.txt: sumupdown.x
 	./sumupdown.x > data.txt
