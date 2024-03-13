@@ -36,7 +36,7 @@ void compute_pdf(int seed, int nsamples, double mu, double sigma, double xmin, d
     double x0 = xmin;
     double x1 = x0 + width;
       for(int ii = 0; ii < nbins; ii++){// Itera sobre el número del intervalo
-        if(x0 < r & r < x1){// Verifica que el número generado pertenezca al intervalo actual
+        if(x0 < r && r < x1){// Verifica que el número generado pertenezca al intervalo actual
           hist[ii]++; // Aumentar el conteo del hisograma
           break;
         }

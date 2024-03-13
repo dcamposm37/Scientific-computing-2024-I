@@ -1,0 +1,38 @@
+### PROPÓSITO INICIAL DEL CÓDIGO ###
+El objetivo más probable de este código es realizar una serie de operaciones matemáticas y funciones sobre variables de tipo 
+entero y flotantes de doble presición. En la función main se definen 2 variables enteros ii, jj y llama 3 funciones:
+
+  - función foo: Recibe 2 parametros enteros 'a', 'b' y retorna un entero a/b + b/bar(a, b) + b/a. Podemos notar que esta función
+    presenta divisiones por 0 cuando cualquiera de los 2 parametros que recibe es 0.
+  - función bar: Recibe 2 parametros enteros 'a', 'b', se declara una variable 'c' de tipo unsigned y se le asigna el valor de la 
+    variable 'a'. La función retorna un dato entero c + a - b. Como esta función es llamada en la función foo en el denominador 
+    del segun término, no puede retornar 0.
+  - función baz: Recibe un parametro flotante de doble presición 'x'. Parece que la función pretende retorna la raiz cuadrada de 
+    la variable x y el if busca que esto solo ocurra para valores de x mayores a 0. En está función se define una variable v que 
+    es de signo opuesto de x. Parece estar definida para el caso en el cuál x sea negativo entonces retornar la raiz cuadrada de 
+    v.
+
+
+### ERRORES ENCONTRADOS ###
+- En linea 34 falta el punto y coma.
+- La función baz está mal redactada: faltan los corchetes para delimitar el codigo que ejecuta el  if, 
+                                    la comparación de la condición del if está mal escrita,
+                                    falta especificar el valor que retorna el if,
+                                    se define una variable v que no se usa
+                                    y falta un punto y coma en la linea 34. 
+- La función foo no puede recibir 0 en ninguno de los argumentos porque presenta divisiones por cero en la expresión que 
+  retorna.
+- En la función foo retorna una expresión en la cual la función bar se encuentra en el denominador, por tanto bar no puede 
+  retornar 0.
+
+
+### CAMBIOS REALIZADOS ###
+- Se modífico la identación del código por motivos estéticos.
+- En la función foo se añadio un if que verifique si algunos de los argumento es cero para retornar un EXIT_FAILURE y un mensaje 
+  que indique la existencia de una división entre 0. De lo contrario retorna la expresión inicial.
+- En la función bar se añadió un if que verifica que la función retorna 0 para mostrar un mensaje que indica que, debido a que 
+  bar retorna un 0, se producirá una división por 0 en la función foo. Adicionalmente retorna EXIT_FAILURE en caso de cumplirse 
+  la anterior condición. De lo contrario, retorna la expresión inicial.
+- Dada la interpretación que se le dió a la función baz, se implementó un if que verifique que x es positivo. En caso de 
+  cumplirse la condición retorna la raiz cuadrada de x. De lo contrario retorna la raiz cuadrada de v para evitar calcular una 
+  raiz negativa.
