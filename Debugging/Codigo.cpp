@@ -29,6 +29,7 @@ int foo(int a, int b){
 
 int bar(int a, int b){
   unsigned int c = a;
+  std::cout << c << std::endl;
   if (c + a - b == 0){ //Condición en la cual la función retorna cero
     std::cout << "La función foo tiene una división por cero porque la función bar retorna 0. Por favor modifique los argumentos de la función" << std::endl;
     return EXIT_FAILURE;
