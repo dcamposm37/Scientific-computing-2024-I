@@ -1,0 +1,21 @@
+all: run
+
+%.o: %.cpp
+	g++ -c $<
+
+%.out: %.o vector_ops.o
+	g++ $^ -o $@
+
+vector_test.out: vector_test.o vector_ops.o
+	g++ $^ -o $@ -l Catch2Main -l Catch2
+
+test: vector_test.out
+	./vector_test.out
+
+.ONESHELL:
+run: vector_main.out
+	@read -p "Ingrese el tamaño del vector: " N
+	./vector_main.out $$N
+
+clean:
+	rm -f *.o *.out
